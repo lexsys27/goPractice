@@ -5,5 +5,7 @@ import (
 )
 
 func main() {
-	fmt.Printf("Привет, мир!\n")
+  isTrue := true
+
+  fmt.Printf("%t\n", isTrue)
 }
