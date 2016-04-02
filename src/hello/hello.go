@@ -6,9 +6,9 @@ import (
 )
 
 func main() {
-	if n, err := fmt.Printf("Hello, world!\n"); err != nil {
+  _, err := fmt.Printf("Hello, world!\n")
+
+  if err != nil {
 		os.Exit(1)
-	} else {
-		fmt.Printf("Printed number %d of bytes\n", n)
 	}
 }
