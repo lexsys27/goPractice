@@ -5,13 +5,7 @@ import (
 )
 
 func main() {
-  var counter int
-
-  counter = 0
-
-  for counter < 10 {
+  for counter := 0; counter < 10; counter += 1 {
     fmt.Printf("Hello, world!\n")
-
-    counter += 1
   }
 }
