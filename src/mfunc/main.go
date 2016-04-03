@@ -2,15 +2,19 @@ package main
 
 import (
 	"fmt"
+  "os"
 )
 
-func printer(msg string, repeat int){
-  for repeat > 0 {
-    fmt.Printf("%s\n", msg)
-    repeat -= 1
-  }
+func printer(msg string) error{
+  _, err := fmt.Printf("%s\n", msg)
+
+  return err
 }
 
 func main() {
-  printer("Hello, world!", 3)
+  printerError := printer("Hello, world!")
+
+  if printerError != nil {
+    os.Exit(1)
+  }
 }
