@@ -13,6 +13,11 @@ func printer(words []string) {
 }
 
 func main() {
-  words := []string{"the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"}
-  printer(words[:2])
+  words := make([]string, 4)
+  words[0] = "the"
+  words[1] = "quick"
+  words[2] = "brown"
+  words[3] = "fox"
+
+  printer(words)
 }
