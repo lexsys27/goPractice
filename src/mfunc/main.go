@@ -2,19 +2,20 @@ package main
 
 import (
 	"fmt"
-  "os"
 )
 
-func printer(msg string) error{
-  _, err := fmt.Printf("%s\n", msg)
+func printer(msg string) (string, error) {
+  msg += "\n"
 
-  return err
+  _, err := fmt.Printf("%s", msg)
+
+  return msg, err
 }
 
 func main() {
-  printerError := printer("Hello, world!")
+  appendedString, printerError := printer("Hello, world!")
 
-  if printerError != nil {
-    os.Exit(1)
+  if printerError == nil {
+    fmt.Printf("% x\n", appendedString)
   }
 }
