@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func printer(words [4]string) {
+func printer(words []string) {
   for _, word := range words {
     fmt.Printf("%s", word)
   }
@@ -13,6 +13,6 @@ func printer(words [4]string) {
 }
 
 func main() {
-  words := [4]string{"the", "quick", "brown", "fox"}
-  printer(words)
+  words := []string{"the", "quick", "brown", "fox", "jumps", "over", "the", "lazy", "dog"}
+  printer(words[:2])
 }
