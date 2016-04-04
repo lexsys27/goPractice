@@ -4,18 +4,14 @@ import (
 	"fmt"
 )
 
-func printer(msg string) (string, error) {
-  msg += "\n"
+func printer(msg string) error {
+  defer fmt.Printf("\n")
 
   _, err := fmt.Printf("%s", msg)
 
-  return msg, err
+  return err
 }
 
 func main() {
-  appendedString, printerError := printer("Hello, world!")
-
-  if printerError == nil {
-    fmt.Printf("% x\n", appendedString)
-  }
+  printer("Hello, world!")
 }
