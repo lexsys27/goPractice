@@ -5,10 +5,11 @@ import (
 )
 
 func main() {
-	dayMonths := make(map[string]int)
-	dayMonths["Jan"] = 31
-	dayMonths["Feb"] = 28
-	dayMonths["Mar"] = 30
+	dayMonths := map[string]int{
+	  "Jan": 31,
+	  "Feb": 28,
+	  "Mar": 30,
+  }
 
   has31 := 0
 
