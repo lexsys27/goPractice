@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"os"
 )
 
 func main() {
@@ -11,11 +10,8 @@ func main() {
 	dayMonths["Feb"] = 28
 	dayMonths["Mar"] = 30
 
-	days, ok := dayMonths["January"]
-	if !ok {
-		fmt.Printf("Can't get number of days\n")
-		os.Exit(1)
-	}
-	fmt.Printf("Days in February: %d\n", days)
+  for month, days := range dayMonths {
+    fmt.Printf("%s has %d days\n", month, days)
+  }
 
 }
