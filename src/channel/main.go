@@ -4,24 +4,20 @@ import (
 	"fmt"
 )
 
-func emit(c chan string) {
-  words := []string{"Quick", "brown", "fox", "jumps"}
+func makeID(idChan chan int) {
+  var id int
+  id = 1
 
-  for _, w := range words {
-    c <- w
+  for {
+    idChan <- id;
+    id += 1
   }
-
-  close(c)
 }
 
 func main() {
-  wordsChan := make(chan string)
+  ids := make(chan int)
 
-  go emit(wordsChan)
+  go makeID(ids)
 
-  for word := range wordsChan {
-    fmt.Printf("%s\n", word)
-  }
-
-  fmt.Printf("\n")
+  fmt.Printf("%d\n", <- ids)
 }
