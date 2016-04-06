@@ -36,5 +36,8 @@ func main() {
   go emit(wordCh, doneCh)
 
   for word := range wordCh {
+    fmt.Printf("%s ", word)
   }
+
+  fmt.Printf("\n")
 }
