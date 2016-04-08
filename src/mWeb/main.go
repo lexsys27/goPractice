@@ -21,13 +21,22 @@ func getPage(url string) (int, error) {
   return len(body), nil
 }
 
-func main() {
-  url := "http://ya.ru"
-
-  pageLength, err := getPage(url)
-  if err != nil {
-    panic(err)
+func getter(url string, size chan int) {
+  length, err := getPage(url)
+  if err == nil {
+    size <- length
   }
+}
 
-  fmt.Printf("%s length is %d\n", url, pageLength)
+func main() {
+  urls := []string{"http://ya.ru", "http://google.com", "http://rbc.ru", "http://vk.com"}
+
+  size := make(chan int)
+
+  for _, url := range urls {
+    go getter(url, size)
+  }
+  for i := 0; i < len(urls); i++ {
+    fmt.Printf("Length is %d\n", <-size)
+  }
 }
